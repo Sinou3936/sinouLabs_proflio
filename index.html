@@ -35,13 +35,14 @@
     .topbar{position:sticky; top:0; z-index:10; background:var(--ground); border-bottom:1px solid var(--line)}
     .bar{display:flex; justify-content:space-between; align-items:center; height:60px}
     .brand{display:block; line-height:0}
-    .brand img{height:28px; width:auto; display:block}
+    .brand img{height:38px; width:auto; display:block; box-sizing:border-box; padding:6px 10px; background:#F8F9FA; border-radius:10px}
     nav a{font-size:14px; font-weight:600; color:var(--muted); text-decoration:none; margin-left:24px}
     nav a:hover{color:var(--ink)}
 
     .eyebrow{font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-ink); margin:0 0 18px}
 
     .hero{padding:124px 0 80px}
+    .hero-logo{display:block; width:min(380px,100%); height:auto; box-sizing:border-box; background:#F8F9FA; border-radius:22px; padding:22px 28px; margin:0 0 48px}
     h1{font-size:clamp(40px,7vw,72px); line-height:1.08; letter-spacing:-.035em; font-weight:800; margin:0 0 28px; text-wrap:balance}
     .lede{font-size:19px; color:var(--muted); margin:0; max-width:40ch}
 
@@ -97,7 +98,7 @@
 
   <main id="top" class="wrap">
     <section class="hero">
-      <p class="eyebrow">Solo Studio</p>
+      <img class="hero-logo" src="assets/logo.png" alt="SinouLabs" width="1536" height="509">
       <h1>사람의 일상을 조금 더 편하게 만드는 앱을 만듭니다.</h1>
       <p class="lede">기획, 디자인, 개발, 배포까지 혼자 맡아 만듭니다.</p>
     </section>
