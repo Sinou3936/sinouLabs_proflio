@@ -45,6 +45,10 @@
     h1{font-size:clamp(40px,7vw,72px); line-height:1.08; letter-spacing:-.035em; font-weight:800; margin:0 0 24px; word-break:keep-all}
     h2{font-size:clamp(28px,4vw,40px); line-height:1.2; letter-spacing:-.025em; font-weight:800; margin:0 0 12px; word-break:keep-all}
     .lead{font-size:19px; color:var(--muted); margin:0; max-width:36ch}
+    .hero-apps{display:flex; flex-wrap:wrap; gap:28px; margin-top:44px}
+    .hero-apps a{display:flex; align-items:center; gap:12px; color:var(--ink); text-decoration:none; font-weight:700; font-size:16px}
+    .hero-apps img{width:56px; height:56px; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,.1)}
+    .hero-apps a:hover span{text-decoration:underline; text-underline-offset:3px}
 
     /* hero */
     .hero{padding:96px 0 72px}
@@ -129,6 +133,10 @@
         <img class="hero-logo" src="assets/logo.png" alt="SinouLabs">
         <h1>사람의 일상을 조금<br>더 편하게 만드는 앱을 만듭니다.</h1>
         <p class="lead">기획, 디자인, 개발, 배포까지 혼자 맡아 만듭니다.</p>
+        <div class="hero-apps">
+          <a href="#products"><img src="assets/yakbom-icon.png" alt="약봄 앱 아이콘"><span>약봄</span></a>
+          <a href="#products"><img src="assets/hobbyhub-icon.png" alt="하비허브 앱 아이콘"><span>하비허브</span></a>
+        </div>
       </div>
     </section>
 
