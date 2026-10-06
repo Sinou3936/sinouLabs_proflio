@@ -81,12 +81,16 @@
     .links a::after{content:" →"; color:var(--accent-ink)}
     .links a:hover{text-decoration:underline; text-underline-offset:3px}
 
-    /* differentiation */
-    .diff{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:48px; align-items:start}
-    .diff ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:20px}
-    .diff li{padding:18px 0; border-bottom:1px solid var(--line)}
-    .diff li strong{display:block; font-size:17px; margin-bottom:4px; letter-spacing:-.01em}
-    .diff li span{font-size:15px; color:var(--muted)}
+    /* app tabs */
+    .tabs{display:inline-flex; gap:6px; background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:5px; margin:0 0 36px}
+    .tab{font:inherit; font-size:15px; font-weight:700; color:var(--muted); background:transparent; border:0; border-radius:999px; padding:9px 20px; cursor:pointer}
+    .tab[aria-selected="true"]{background:var(--ink); color:var(--ground)}
+    .tab:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+    .panel[hidden]{display:none}
+    .points{list-style:none; margin:32px 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px}
+    .points li{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:24px 22px}
+    .points li strong{display:block; font-size:17px; margin-bottom:6px; letter-spacing:-.01em}
+    .points li span{font-size:15px; color:var(--muted)}
 
     /* contact */
     .mail{font-size:clamp(22px,4vw,34px); font-weight:700; letter-spacing:-.02em; color:var(--ink); text-decoration:none}
@@ -105,7 +109,7 @@
     @media (max-width:860px){
       .hero{padding:64px 0 48px}
       .strengths{grid-template-columns:1fr}
-      .diff{grid-template-columns:1fr; gap:24px}
+      .points{grid-template-columns:1fr}
       nav a{margin-left:16px}
     }
     @media (max-width:760px){
@@ -207,13 +211,16 @@
     </section>
 
     <section id="difference" class="block">
-      <p class="eyebrow">우리 앱의 차별점</p>
-      <div class="diff">
-        <div>
-          <h2>알림을 놓치지 않게,<br>기록은 가족에게.</h2>
-          <p class="intro">복약 알림은 보는 것만으로 행동을 이끌어야 합니다. 약봄은 그 한 순간에 집중했습니다.</p>
-        </div>
-        <ul>
+      <p class="eyebrow">Features</p>
+      <div class="tabs" role="tablist" aria-label="앱 선택">
+        <button class="tab" role="tab" id="tab-yakbom" aria-controls="panel-yakbom" aria-selected="true">약봄</button>
+        <button class="tab" role="tab" id="tab-hobbyhub" aria-controls="panel-hobbyhub" aria-selected="false" tabindex="-1">하비허브</button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-yakbom" aria-labelledby="tab-yakbom">
+        <h2>알림을 놓치지 않게,<br>기록은 가족에게.</h2>
+        <p class="intro">복약 알림은 보는 것만으로 행동을 이끌어야 합니다. 약봄은 그 한 순간에 집중했습니다.</p>
+        <ul class="points">
           <li>
             <strong>화면이 꺼져 있어도 뜨는 복약 알람</strong>
             <span>잠금 화면 위로 큰 알림 화면이 자동으로 올라옵니다. 약 이름과 복용 완료 버튼만 보이도록 단순하게 구성했습니다.</span>
@@ -226,9 +233,24 @@
             <strong>6자리 코드로 가족과 연결</strong>
             <span>떨어져 사는 가족이 전화 없이도 오늘 약을 드셨는지 확인할 수 있습니다.</span>
           </li>
+        </ul>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-hobbyhub" aria-labelledby="tab-hobbyhub" hidden>
+        <h2>기록하고, 나누고,<br>함께 성장하는 취미 커뮤니티.</h2>
+        <p class="intro">취미 활동을 기록하면 XP와 레벨로 성장이 보이고, 같은 관심사의 사람들과 이야기할 수 있습니다.</p>
+        <ul class="points">
           <li>
-            <strong>커뮤니티 기능도 직접 구현</strong>
-            <span>하비허브는 실시간 채팅, 태그 기반 피드, XP·레벨 성장 시스템을 갖춘 커뮤니티 앱입니다.</span>
+            <strong>실시간 채팅</strong>
+            <span>같은 관심사의 사람들과 바로 대화할 수 있습니다.</span>
+          </li>
+          <li>
+            <strong>태그 기반 피드</strong>
+            <span>취미 태그로 비슷한 사람들의 기록을 모아 봅니다.</span>
+          </li>
+          <li>
+            <strong>XP·레벨 성장과 AI 피드백</strong>
+            <span>기록과 연속 활동으로 XP가 쌓이고, 7일마다 Gemini가 활동을 분석해 피드백을 줍니다.</span>
           </li>
         </ul>
       </div>
@@ -253,5 +275,21 @@
   </main>
 
   <footer class="wrap foot">&copy; 2026 SinouLabs. All rights reserved.</footer>
+
+  <script>
+    (function(){
+      var tabs = document.querySelectorAll('[role="tab"]');
+      tabs.forEach(function(tab){
+        tab.addEventListener('click', function(){
+          tabs.forEach(function(t){
+            var on = t === tab;
+            t.setAttribute('aria-selected', on);
+            t.tabIndex = on ? 0 : -1;
+            document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+          });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
