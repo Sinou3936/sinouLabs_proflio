@@ -5,94 +5,158 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>시노우랩스 (SinouLabs)</title>
   <meta name="description" content="시니어와 가족을 위한 생활 앱을 만드는 1인 개발 스튜디오, 시노우랩스입니다.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css">
   <style>
     :root{
-      --ground:#FAF6F3; --surface:#FFFFFF; --ink:#261D1A; --muted:#8B7C74;
-      --accent:#E8896A; --accent-deep:#CF5F3E; --hairline:#ECE0D9;
+      --ground:#F6F7F5; --surface:#FFFFFF; --ink:#16191A; --muted:#6B716E; --faint:#A3A9A6;
+      --line:#E3E6E3; --media:#EDF0EE; --accent:#E8896A; --accent-ink:#B4502E;
     }
     @media (prefers-color-scheme:dark){
       :root:not([data-theme="light"]){
-        --ground:#17120F; --surface:#211913; --ink:#F3EAE4; --muted:#A89890;
-        --accent:#EE9576; --accent-deep:#F0A488; --hairline:#372A22;
+        --ground:#0F1211; --surface:#171B19; --ink:#E9EDEA; --muted:#8E9793; --faint:#5C6461;
+        --line:#262C29; --media:#1D2321; --accent:#EE9576; --accent-ink:#F2A58A;
       }
     }
     :root[data-theme="dark"]{
-      --ground:#17120F; --surface:#211913; --ink:#F3EAE4; --muted:#A89890;
-      --accent:#EE9576; --accent-deep:#F0A488; --hairline:#372A22;
+      --ground:#0F1211; --surface:#171B19; --ink:#E9EDEA; --muted:#8E9793; --faint:#5C6461;
+      --line:#262C29; --media:#1D2321; --accent:#EE9576; --accent-ink:#F2A58A;
     }
+
     *{box-sizing:border-box}
     body{
       margin:0; background:var(--ground); color:var(--ink);
-      font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",system-ui,sans-serif;
+      font-family:"Pretendard",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
       line-height:1.7; -webkit-font-smoothing:antialiased;
     }
-    .wrap{max-width:720px; margin:0 auto; padding:64px 22px 56px}
-    header h1{font-size:clamp(28px,6vw,40px); letter-spacing:-.02em; margin:0 0 10px; font-weight:800}
-    header p{font-size:17px; color:var(--muted); margin:0}
-    section{margin-top:44px}
-    h2{font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-deep); margin:0 0 14px; font-weight:700}
-    .card{background:var(--surface); border:1px solid var(--hairline); border-radius:16px; padding:22px 24px}
-    .card h3{margin:0 0 6px; font-size:20px}
-    .card p{margin:0 0 14px; color:var(--muted); font-size:15px}
-    .status{display:inline-block; font-size:12.5px; font-weight:700; color:var(--accent-deep); background:var(--ground); border:1px solid var(--hairline); border-radius:99px; padding:3px 10px; margin-bottom:12px}
-    .links{display:flex; flex-wrap:wrap; gap:10px}
-    .links a{font-size:14.5px; color:var(--accent-deep); text-decoration:none; border-bottom:1px solid var(--hairline); padding-bottom:2px}
-    .links a:hover{border-bottom-color:var(--accent-deep)}
-    table{width:100%; border-collapse:collapse; font-size:15px}
-    th,td{text-align:left; padding:10px 4px; border-bottom:1px solid var(--hairline); vertical-align:top}
-    th{width:34%; color:var(--muted); font-weight:600}
-    .contact a{color:var(--accent-deep); font-size:16px; font-weight:600; text-decoration:none}
-    footer{margin-top:56px; font-size:13px; color:var(--muted)}
-    @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+    a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+
+    .wrap{max-width:1040px; margin:0 auto; padding:0 24px}
+
+    .topbar{position:sticky; top:0; z-index:10; background:var(--ground); border-bottom:1px solid var(--line)}
+    .bar{display:flex; justify-content:space-between; align-items:center; height:60px}
+    .brand{font-weight:800; font-size:17px; letter-spacing:-.02em; color:var(--ink); text-decoration:none}
+    .brand::before{content:""; display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--accent); margin-right:9px; vertical-align:middle}
+    nav a{font-size:14px; font-weight:600; color:var(--muted); text-decoration:none; margin-left:24px}
+    nav a:hover{color:var(--ink)}
+
+    .eyebrow{font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-ink); margin:0 0 18px}
+
+    .hero{padding:124px 0 80px}
+    h1{font-size:clamp(40px,7vw,72px); line-height:1.08; letter-spacing:-.035em; font-weight:800; margin:0 0 28px; text-wrap:balance}
+    .lede{font-size:19px; color:var(--muted); margin:0; max-width:40ch}
+
+    .block{padding:72px 0; border-top:1px solid var(--line)}
+
+    .grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px}
+    .card{background:var(--surface); border:1px solid var(--line); border-radius:20px; overflow:hidden; display:flex; flex-direction:column}
+    .media{aspect-ratio:4/3; background:var(--media); border-bottom:1px solid var(--line)}
+    .body{padding:26px 26px 28px; display:flex; flex-direction:column; gap:12px; flex:1}
+    .status{align-self:flex-start; font-size:12px; font-weight:700; color:var(--accent-ink); background:color-mix(in srgb,var(--accent) 14%,transparent); padding:4px 10px; border-radius:99px}
+    .name{font-size:28px; font-weight:800; letter-spacing:-.02em; margin:0; line-height:1.2}
+    .desc{margin:0; font-size:15.5px; color:var(--muted)}
+    .tags{list-style:none; display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0}
+    .tags li{font-size:12.5px; color:var(--muted); border:1px solid var(--line); border-radius:6px; padding:3px 8px}
+    .links{margin-top:auto; padding-top:8px; display:flex; flex-wrap:wrap; gap:20px}
+    .links a{font-size:14.5px; font-weight:600; color:var(--ink); text-decoration:none}
+    .links a::after{content:" →"; color:var(--accent-ink)}
+    .links a:hover{text-decoration:underline; text-underline-offset:3px}
+
+    .mail{font-size:clamp(22px,4vw,34px); font-weight:700; letter-spacing:-.02em; color:var(--ink); text-decoration:none}
+    .mail:hover{color:var(--accent-ink)}
+    .lede-sm{font-size:16px; color:var(--muted); margin:0 0 14px}
+
+    .info{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 48px; margin:0}
+    .info > div{padding:16px 0; border-bottom:1px solid var(--line)}
+    .info dt{font-size:13px; color:var(--muted); margin-bottom:4px}
+    .info dd{margin:0; font-size:16px; font-weight:600}
+    .info a{color:var(--ink)}
+
+    .foot{font-size:13px; color:var(--faint); padding:32px 24px 56px; border-top:1px solid var(--line)}
+
+    @media (max-width:760px){
+      .grid{grid-template-columns:1fr}
+      .info{grid-template-columns:1fr}
+      .hero{padding:80px 0 56px}
+      .block{padding:56px 0}
+      nav a{margin-left:16px}
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <h1>시노우랩스</h1>
-      <p>사람의 일상을 조금 더 편하게 만드는 앱을 만듭니다.</p>
-    </header>
+  <header class="topbar">
+    <div class="wrap bar">
+      <a class="brand" href="#top">SinouLabs</a>
+      <nav>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+        <a href="#business">Info</a>
+      </nav>
+    </div>
+  </header>
 
-    <section>
-      <h2>Products</h2>
-      <div class="card">
-        <span class="status">출시 준비 중</span>
-        <h3>약봄</h3>
-        <p>시니어의 복약을 돕고, 떨어져 사는 가족이 복용 현황을 함께 확인하는 건강 관리 앱입니다. 화면이 꺼져 있어도 울리는 복약 알람, 복용 기간 관리, 가족 연동 기능을 제공합니다.</p>
-        <div class="links">
-          <a href="https://sinou3936.github.io/SeniorCare/privacy-policy/">개인정보처리방침</a>
-          <a href="https://sinou3936.github.io/SeniorCare/account-deletion/">계정·데이터 삭제 안내</a>
-        </div>
-      </div>
-      <div class="card" style="margin-top:14px">
-        <span class="status">개발 프로젝트</span>
-        <h3>하비허브</h3>
-        <p>취미를 기록하고 같은 관심사의 사람들과 소통하는 취미 공유 커뮤니티 앱입니다. 소셜 로그인, 취미 기록과 XP·레벨 성장, 태그 기반 피드, 실시간 채팅, AI 기반 활동 피드백을 구현했습니다.</p>
+  <main id="top" class="wrap">
+    <section class="hero">
+      <p class="eyebrow">Solo Studio</p>
+      <h1>사람의 일상을 조금 더 편하게 만드는 앱을 만듭니다.</h1>
+      <p class="lede">기획, 디자인, 개발, 배포까지 혼자 맡아 만듭니다.</p>
+    </section>
+
+    <section id="products" class="block">
+      <p class="eyebrow">Products</p>
+      <div class="grid">
+        <article class="card">
+          <div class="media" aria-hidden="true"></div>
+          <div class="body">
+            <span class="status">출시 준비 중</span>
+            <h3 class="name">약봄</h3>
+            <p class="desc">시니어의 복약을 돕고, 떨어져 사는 가족이 복용 현황을 함께 확인하는 건강 관리 앱입니다. 화면이 꺼져 있어도 울리는 복약 알람, 복용 기간 관리, 가족 연동 기능을 제공합니다.</p>
+            <ul class="tags">
+              <li>Flutter</li>
+              <li>Firebase</li>
+              <li>Android</li>
+            </ul>
+            <div class="links">
+              <a href="https://sinou3936.github.io/SeniorCare/privacy-policy/">개인정보처리방침</a>
+              <a href="https://sinou3936.github.io/SeniorCare/account-deletion/">계정·데이터 삭제 안내</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="media" aria-hidden="true"></div>
+          <div class="body">
+            <span class="status">개발 프로젝트</span>
+            <h3 class="name">하비허브</h3>
+            <p class="desc">취미를 기록하고 같은 관심사의 사람들과 소통하는 취미 공유 커뮤니티 앱입니다. 소셜 로그인, 취미 기록과 XP·레벨 성장, 태그 기반 피드, 실시간 채팅, AI 기반 활동 피드백을 구현했습니다.</p>
+            <ul class="tags">
+              <li>Flutter</li>
+              <li>Firebase</li>
+              <li>Cloud Functions</li>
+              <li>Gemini</li>
+            </ul>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section>
-      <h2>Contact</h2>
-      <div class="card contact">
-        <p>제품 문의, 제휴, 기타 연락은 아래 이메일로 주세요.</p>
-        <a href="mailto:asd27090@gmail.com">asd27090@gmail.com</a>
-      </div>
+    <section id="contact" class="block">
+      <p class="eyebrow">Contact</p>
+      <p class="lede-sm">제품 문의, 제휴, 기타 연락은 아래 이메일로 주세요.</p>
+      <a class="mail" href="mailto:asd27090@gmail.com">asd27090@gmail.com</a>
     </section>
 
-    <section>
-      <h2>Business Information</h2>
-      <div class="card">
-        <table>
-          <tr><th>상호</th><td>시노우랩스 (SinouLabs)</td></tr>
-          <tr><th>대표자</th><td>김현승</td></tr>
-          <tr><th>사업자등록번호</th><td>871-09-03135</td></tr>
-          <tr><th>업종</th><td>응용 소프트웨어 개발 및 공급업</td></tr>
-          <tr><th>연락처</th><td>위 이메일로 문의</td></tr>
-        </table>
-      </div>
+    <section id="business" class="block">
+      <p class="eyebrow">Business Information</p>
+      <dl class="info">
+        <div><dt>상호</dt><dd>시노우랩스 (SinouLabs)</dd></div>
+        <div><dt>대표자</dt><dd>김현승</dd></div>
+        <div><dt>사업자등록번호</dt><dd>871-09-03135</dd></div>
+        <div><dt>업종</dt><dd>응용 소프트웨어 개발 및 공급업</dd></div>
+        <div><dt>문의</dt><dd><a href="mailto:asd27090@gmail.com">asd27090@gmail.com</a></dd></div>
+      </dl>
     </section>
+  </main>
 
-    <footer>&copy; 2026 SinouLabs. All rights reserved.</footer>
-  </div>
+  <footer class="wrap foot">&copy; 2026 SinouLabs. All rights reserved.</footer>
 </body>
 </html>
