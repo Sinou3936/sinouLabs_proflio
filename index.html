@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>시노우랩스 (SinouLabs)</title>
+  <meta name="description" content="시니어와 가족을 위한 생활 앱을 만드는 1인 개발 스튜디오, 시노우랩스입니다.">
+  <style>
+    :root{
+      --ground:#FAF6F3; --surface:#FFFFFF; --ink:#261D1A; --muted:#8B7C74;
+      --accent:#E8896A; --accent-deep:#CF5F3E; --hairline:#ECE0D9;
+    }
+    @media (prefers-color-scheme:dark){
+      :root:not([data-theme="light"]){
+        --ground:#17120F; --surface:#211913; --ink:#F3EAE4; --muted:#A89890;
+        --accent:#EE9576; --accent-deep:#F0A488; --hairline:#372A22;
+      }
+    }
+    :root[data-theme="dark"]{
+      --ground:#17120F; --surface:#211913; --ink:#F3EAE4; --muted:#A89890;
+      --accent:#EE9576; --accent-deep:#F0A488; --hairline:#372A22;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:var(--ground); color:var(--ink);
+      font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",system-ui,sans-serif;
+      line-height:1.7; -webkit-font-smoothing:antialiased;
+    }
+    .wrap{max-width:720px; margin:0 auto; padding:64px 22px 56px}
+    header h1{font-size:clamp(28px,6vw,40px); letter-spacing:-.02em; margin:0 0 10px; font-weight:800}
+    header p{font-size:17px; color:var(--muted); margin:0}
+    section{margin-top:44px}
+    h2{font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-deep); margin:0 0 14px; font-weight:700}
+    .card{background:var(--surface); border:1px solid var(--hairline); border-radius:16px; padding:22px 24px}
+    .card h3{margin:0 0 6px; font-size:20px}
+    .card p{margin:0 0 14px; color:var(--muted); font-size:15px}
+    .status{display:inline-block; font-size:12.5px; font-weight:700; color:var(--accent-deep); background:var(--ground); border:1px solid var(--hairline); border-radius:99px; padding:3px 10px; margin-bottom:12px}
+    .links{display:flex; flex-wrap:wrap; gap:10px}
+    .links a{font-size:14.5px; color:var(--accent-deep); text-decoration:none; border-bottom:1px solid var(--hairline); padding-bottom:2px}
+    .links a:hover{border-bottom-color:var(--accent-deep)}
+    table{width:100%; border-collapse:collapse; font-size:15px}
+    th,td{text-align:left; padding:10px 4px; border-bottom:1px solid var(--hairline); vertical-align:top}
+    th{width:34%; color:var(--muted); font-weight:600}
+    .contact a{color:var(--accent-deep); font-size:16px; font-weight:600; text-decoration:none}
+    footer{margin-top:56px; font-size:13px; color:var(--muted)}
+    @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>시노우랩스</h1>
+      <p>사람의 일상을 조금 더 편하게 만드는 앱을 만듭니다.</p>
+    </header>
+
+    <section>
+      <h2>Product</h2>
+      <div class="card">
+        <span class="status">출시 준비 중</span>
+        <h3>약봄</h3>
+        <p>시니어의 복약을 돕고, 떨어져 사는 가족이 복용 현황을 함께 확인하는 건강 관리 앱입니다. 화면이 꺼져 있어도 울리는 복약 알람, 복용 기간 관리, 가족 연동 기능을 제공합니다.</p>
+        <div class="links">
+          <a href="https://sinou3936.github.io/SeniorCare/privacy-policy/">개인정보처리방침</a>
+          <a href="https://sinou3936.github.io/SeniorCare/account-deletion/">계정·데이터 삭제 안내</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <div class="card contact">
+        <p>제품 문의, 제휴, 기타 연락은 아래 이메일로 주세요.</p>
+        <a href="mailto:asd27090@gmail.com">asd27090@gmail.com</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Business Information</h2>
+      <div class="card">
+        <table>
+          <tr><th>상호</th><td>시노우랩스 (SinouLabs)</td></tr>
+          <tr><th>대표자</th><td>김현승</td></tr>
+          <tr><th>사업자등록번호</th><td>871-09-03135</td></tr>
+          <tr><th>업종</th><td>응용 소프트웨어 개발 및 공급업</td></tr>
+          <tr><th>연락처</th><td>위 이메일로 문의</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <footer>&copy; 2026 SinouLabs. All rights reserved.</footer>
+  </div>
+</body>
+</html>
