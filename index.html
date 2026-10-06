@@ -87,7 +87,10 @@
     .tab[aria-selected="true"]{background:var(--ink); color:var(--ground)}
     .tab:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
     .panel[hidden]{display:none}
-    .points{list-style:none; margin:32px 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px}
+    .shots{display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 2px 12px; margin:0 -2px}
+    .shots figure{margin:0; flex:0 0 auto; scroll-snap-align:start; background:var(--media); border:1px solid var(--line); border-radius:22px; overflow:hidden}
+    .shots img{height:420px; width:auto; display:block}
+    .points{list-style:none; margin:24px 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px}
     .points li{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:24px 22px}
     .points li strong{display:block; font-size:17px; margin-bottom:6px; letter-spacing:-.01em}
     .points li span{font-size:15px; color:var(--muted)}
@@ -220,6 +223,11 @@
       <div class="panel" role="tabpanel" id="panel-yakbom" aria-labelledby="tab-yakbom">
         <h2>알림을 놓치지 않게,<br>기록은 가족에게.</h2>
         <p class="intro">복약 알림은 보는 것만으로 행동을 이끌어야 합니다. 약봄은 그 한 순간에 집중했습니다.</p>
+        <div class="shots">
+          <figure><img src="assets/yakbom-alarm.jpg" alt="약봄 복약 알림 화면" loading="lazy"></figure>
+          <figure><img src="assets/yakbom-home.jpg" alt="약봄 홈 화면, 시간대별 복용 현황" loading="lazy"></figure>
+          <figure><img src="assets/yakbom-settings.jpg" alt="약봄 설정 화면, Google 계정 연결과 보호자 관리" loading="lazy"></figure>
+        </div>
         <ul class="points">
           <li>
             <strong>화면이 꺼져 있어도 뜨는 복약 알람</strong>
@@ -239,6 +247,11 @@
       <div class="panel" role="tabpanel" id="panel-hobbyhub" aria-labelledby="tab-hobbyhub" hidden>
         <h2>기록하고, 나누고,<br>함께 성장하는 취미 커뮤니티.</h2>
         <p class="intro">취미 활동을 기록하면 XP와 레벨로 성장이 보이고, 같은 관심사의 사람들과 이야기할 수 있습니다.</p>
+        <div class="shots">
+          <figure><img src="assets/hobbyhub-main.png" alt="하비허브 메인 피드" loading="lazy"></figure>
+          <figure><img src="assets/hobbyhub-chats.png" alt="하비허브 채팅 화면" loading="lazy"></figure>
+          <figure><img src="assets/hobbyhub-growth.png" alt="하비허브 성장 화면, XP와 레벨" loading="lazy"></figure>
+        </div>
         <ul class="points">
           <li>
             <strong>실시간 채팅</strong>
