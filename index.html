@@ -10,6 +10,7 @@
     :root{
       --ground:#F6F7F5; --surface:#FFFFFF; --ink:#16191A; --muted:#6B716E; --faint:#A3A9A6;
       --line:#E3E6E3; --media:#EDF0EE; --accent:#E8896A; --accent-ink:#B4502E;
+      --chip:#F8F9FA;
     }
     @media (prefers-color-scheme:dark){
       :root:not([data-theme="light"]){
@@ -29,25 +30,40 @@
       line-height:1.7; -webkit-font-smoothing:antialiased;
     }
     a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+    img{display:block}
 
     .wrap{max-width:1040px; margin:0 auto; padding:0 24px}
 
+    /* top bar */
     .topbar{position:sticky; top:0; z-index:10; background:var(--ground); border-bottom:1px solid var(--line)}
     .bar{display:flex; justify-content:space-between; align-items:center; height:60px}
-    .brand{display:block; line-height:0}
-    .brand img{height:38px; width:auto; display:block; box-sizing:border-box; padding:6px 10px; background:#F8F9FA; border-radius:10px}
+    .brand img{height:38px; width:auto; box-sizing:border-box; padding:6px 10px; background:var(--chip); border-radius:10px}
     nav a{font-size:14px; font-weight:600; color:var(--muted); text-decoration:none; margin-left:24px}
     nav a:hover{color:var(--ink)}
 
-    .eyebrow{font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-ink); margin:0 0 18px}
+    .eyebrow{font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-ink); margin:0 0 16px}
+    h1{font-size:clamp(40px,7vw,72px); line-height:1.08; letter-spacing:-.035em; font-weight:800; margin:0 0 24px; word-break:keep-all}
+    h2{font-size:clamp(28px,4vw,40px); line-height:1.2; letter-spacing:-.025em; font-weight:800; margin:0 0 12px; word-break:keep-all}
+    .lead{font-size:19px; color:var(--muted); margin:0; max-width:36ch}
 
-    .hero{padding:88px 0 48px}
-    .hero-logo{display:block; width:min(340px,100%); height:auto; box-sizing:border-box; background:#F8F9FA; border-radius:20px; padding:18px 24px; margin:0 0 36px}
-    h1{font-size:clamp(40px,7vw,72px); line-height:1.08; letter-spacing:-.035em; font-weight:800; margin:0 0 28px; word-break:keep-all}
-    .lede{font-size:19px; color:var(--muted); margin:0; max-width:40ch}
+    /* hero */
+    .hero{display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:48px; align-items:center; padding:96px 0 72px}
+    .hero-logo{width:min(300px,100%); height:auto; box-sizing:border-box; background:var(--chip); border-radius:18px; padding:14px 20px; margin:0 0 36px}
+    .hero-art{display:flex; justify-content:center}
+    .hero-art img{width:min(300px,80%); height:auto; border-radius:64px; box-shadow:0 24px 60px rgba(0,0,0,.14)}
 
-    .block{padding:56px 0; border-top:1px solid var(--line)}
+    /* sections */
+    .block{padding:72px 0; border-top:1px solid var(--line)}
+    .intro{margin:0 0 40px; color:var(--muted); font-size:16px}
 
+    /* strengths */
+    .strengths{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px}
+    .strength{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:26px 24px}
+    .strength .num{font-size:13px; font-weight:800; color:var(--accent-ink); margin:0 0 14px; letter-spacing:.06em}
+    .strength h3{font-size:19px; font-weight:800; letter-spacing:-.02em; margin:0 0 8px}
+    .strength p{margin:0; font-size:15px; color:var(--muted)}
+
+    /* products */
     .grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px}
     .card{background:var(--surface); border:1px solid var(--line); border-radius:20px; overflow:hidden; display:flex; flex-direction:column}
     .media{height:188px; background:var(--media); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:center}
@@ -63,10 +79,19 @@
     .links a::after{content:" →"; color:var(--accent-ink)}
     .links a:hover{text-decoration:underline; text-underline-offset:3px}
 
+    /* differentiation */
+    .diff{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:48px; align-items:start}
+    .diff ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:20px}
+    .diff li{padding:18px 0; border-bottom:1px solid var(--line)}
+    .diff li strong{display:block; font-size:17px; margin-bottom:4px; letter-spacing:-.01em}
+    .diff li span{font-size:15px; color:var(--muted)}
+
+    /* contact */
     .mail{font-size:clamp(22px,4vw,34px); font-weight:700; letter-spacing:-.02em; color:var(--ink); text-decoration:none}
     .mail:hover{color:var(--accent-ink)}
-    .lede-sm{font-size:16px; color:var(--muted); margin:0 0 14px}
+    .lead-sm{font-size:16px; color:var(--muted); margin:0 0 14px}
 
+    /* business info */
     .info{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 48px; margin:0}
     .info > div{padding:16px 0; border-bottom:1px solid var(--line)}
     .info dt{font-size:13px; color:var(--muted); margin-bottom:4px}
@@ -75,12 +100,17 @@
 
     .foot{font-size:13px; color:var(--faint); padding:28px 24px 40px; border-top:1px solid var(--line)}
 
+    @media (max-width:860px){
+      .hero{grid-template-columns:1fr; padding:64px 0 48px}
+      .hero-art img{width:200px}
+      .strengths{grid-template-columns:1fr}
+      .diff{grid-template-columns:1fr; gap:24px}
+      nav a{margin-left:16px}
+    }
     @media (max-width:760px){
       .grid{grid-template-columns:1fr}
       .info{grid-template-columns:1fr}
-      .hero{padding:56px 0 40px}
-      .block{padding:44px 0}
-      nav a{margin-left:16px}
+      .block{padding:52px 0}
     }
   </style>
 </head>
@@ -98,9 +128,37 @@
 
   <main id="top" class="wrap">
     <section class="hero">
-      <img class="hero-logo" src="assets/logo.png" alt="SinouLabs" width="1536" height="509">
-      <h1>사람의 일상을 조금<br>더 편하게 만드는 앱을 만듭니다.</h1>
-      <p class="lede">기획, 디자인, 개발, 배포까지 혼자 맡아 만듭니다.</p>
+      <div>
+        <img class="hero-logo" src="assets/logo.png" alt="SinouLabs">
+        <h1>사람의 일상을 조금<br>더 편하게 만드는 앱을 만듭니다.</h1>
+        <p class="lead">기획, 디자인, 개발, 배포까지 혼자 맡아 만듭니다.</p>
+      </div>
+      <div class="hero-art">
+        <img src="assets/yakbom-icon.png" alt="약봄 앱 아이콘">
+      </div>
+    </section>
+
+    <section id="strengths" class="block">
+      <p class="eyebrow">Why SinouLabs</p>
+      <h2>한 사람이 끝까지 책임집니다.</h2>
+      <p class="intro">기획부터 배포까지 맡아, 중간에 사람이 바뀌며 생기는 손실 없이 진행합니다.</p>
+      <div class="strengths">
+        <article class="strength">
+          <p class="num">01</p>
+          <h3>기획부터 배포까지 1인 완결</h3>
+          <p>기획, 개발, 백엔드, 스토어 배포를 한 사람이 맡아 커뮤니케이션 비용 없이 빠르게 진행합니다.</p>
+        </article>
+        <article class="strength">
+          <p class="num">02</p>
+          <h3>실사용 환경에서 검증</h3>
+          <p>화면이 꺼진 상태의 알림, 오프라인, 기기별 시스템 정책처럼 데모에선 안 보이는 문제를 실기기로 확인합니다.</p>
+        </article>
+        <article class="strength">
+          <p class="num">03</p>
+          <h3>AI 기능을 실제 서비스에</h3>
+          <p>Gemini 기반 분석과 피드백을 실사용 앱에 연동해 본 경험이 있습니다.</p>
+        </article>
+      </div>
     </section>
 
     <section id="products" class="block">
@@ -111,7 +169,7 @@
           <div class="body">
             <span class="status">출시 준비 중</span>
             <h3 class="name">약봄</h3>
-            <p class="desc">시니어의 복약을 돕고, 떨어져 사는 가족이 복용 현황을 함께 확인하는 건강 관리 앱입니다. 화면이 꺼져 있어도 울리는 복약 알람, 복용 기간 관리, 가족 연동 기능을 제공합니다.</p>
+            <p class="desc">시니어의 복약을 돕고, 떨어져 사는 가족이 복용 현황을 함께 확인하는 건강 관리 앱입니다.</p>
             <ul class="tags">
               <li>Flutter</li>
               <li>Firebase</li>
@@ -129,7 +187,7 @@
           <div class="body">
             <span class="status">Google Play 출시</span>
             <h3 class="name">하비허브</h3>
-            <p class="desc">취미를 기록하고 같은 관심사의 사람들과 소통하는 취미 공유 커뮤니티 앱입니다. 소셜 로그인, 취미 기록과 XP·레벨 성장, 태그 기반 피드, 실시간 채팅, AI 기반 활동 피드백을 구현했습니다.</p>
+            <p class="desc">취미를 기록하고 같은 관심사의 사람들과 소통하는 취미 공유 커뮤니티 앱입니다.</p>
             <ul class="tags">
               <li>Flutter</li>
               <li>Firebase</li>
@@ -146,10 +204,35 @@
       </div>
     </section>
 
+    <section id="difference" class="block">
+      <p class="eyebrow">약봄은 다릅니다</p>
+      <div class="diff">
+        <div>
+          <h2>알림을 놓치지 않게,<br>기록은 가족에게.</h2>
+          <p class="intro">복약 알림은 보는 것만으로 행동을 이끌어야 합니다. 약봄은 그 한 순간에 집중했습니다.</p>
+        </div>
+        <ul>
+          <li>
+            <strong>화면이 꺼져 있어도 뜨는 복약 알람</strong>
+            <span>잠금 화면 위로 큰 알림 화면이 자동으로 올라옵니다. 약 이름과 복용 완료 버튼만 보이도록 단순하게 구성했습니다.</span>
+          </li>
+          <li>
+            <strong>큰 글씨, 큰 버튼, 적은 조작</strong>
+            <span>복용 기간은 날짜를 고르는 대신 1일, 3일, 1주일 버튼으로 바로 정합니다.</span>
+          </li>
+          <li>
+            <strong>6자리 코드로 가족과 연결</strong>
+            <span>떨어져 사는 가족이 전화 없이도 오늘 약을 드셨는지 확인할 수 있습니다.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <section id="contact" class="block">
       <p class="eyebrow">Contact</p>
-      <p class="lede-sm">제품 문의, 제휴, 기타 연락은 아래 이메일로 주세요.</p>
+      <p class="lead-sm">제품 문의, 제휴, 기타 연락은 아래 이메일로 주세요.</p>
       <a class="mail" href="mailto:asd27090@gmail.com">asd27090@gmail.com</a>
+      <!-- 구글 폼 임베드 자리 -->
     </section>
 
     <section id="business" class="block">
