@@ -47,10 +47,8 @@
     .lead{font-size:19px; color:var(--muted); margin:0; max-width:36ch}
 
     /* hero */
-    .hero{display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:48px; align-items:center; padding:96px 0 72px}
+    .hero{padding:96px 0 72px}
     .hero-logo{width:min(300px,100%); height:auto; box-sizing:border-box; background:var(--chip); border-radius:18px; padding:14px 20px; margin:0 0 36px}
-    .hero-art{display:flex; justify-content:center}
-    .hero-art img{width:min(300px,80%); height:auto; border-radius:64px; box-shadow:0 24px 60px rgba(0,0,0,.14)}
 
     /* sections */
     .block{padding:72px 0; border-top:1px solid var(--line)}
@@ -101,8 +99,7 @@
     .foot{font-size:13px; color:var(--faint); padding:28px 24px 40px; border-top:1px solid var(--line)}
 
     @media (max-width:860px){
-      .hero{grid-template-columns:1fr; padding:64px 0 48px}
-      .hero-art img{width:200px}
+      .hero{padding:64px 0 48px}
       .strengths{grid-template-columns:1fr}
       .diff{grid-template-columns:1fr; gap:24px}
       nav a{margin-left:16px}
@@ -132,9 +129,6 @@
         <img class="hero-logo" src="assets/logo.png" alt="SinouLabs">
         <h1>사람의 일상을 조금<br>더 편하게 만드는 앱을 만듭니다.</h1>
         <p class="lead">기획, 디자인, 개발, 배포까지 혼자 맡아 만듭니다.</p>
-      </div>
-      <div class="hero-art">
-        <img src="assets/yakbom-icon.png" alt="약봄 앱 아이콘">
       </div>
     </section>
 
