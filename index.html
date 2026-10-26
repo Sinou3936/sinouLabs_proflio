@@ -108,7 +108,7 @@
     .info a{color:var(--ink)}
 
     .biz{margin:40px 0 0; font-size:14px; color:var(--muted)}
-    .foot{font-size:13px; color:var(--faint); padding:28px 24px 40px; border-top:1px solid var(--line)}
+    .foot{font-size:13px; color:var(--faint); padding:28px 24px 40px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px}
 
     @media (max-width:860px){
       .hero{padding:64px 0 48px}
@@ -280,7 +280,8 @@
     </section>
   </main>
 
-  <footer class="wrap foot">&copy; 2026 SinouLabs. All rights reserved.</footer>
+  <footer class="wrap foot"><span>&copy; 2026 SinouLabs. All rights reserved.</span><span data-visit-counter></span></footer>
+  <script type="module" src="js/visit-counter.js"></script>
 
   <script>
     (function(){

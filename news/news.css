@@ -32,8 +32,7 @@ h1{font-size:clamp(30px,5vw,44px); line-height:1.2; letter-spacing:-.03em; font-
 .list{list-style:none; margin:0; padding:0 0 64px}
 .item{display:block; background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:22px 24px; margin-bottom:16px; color:inherit; text-decoration:none}
 .item:hover{border-color:var(--accent)}
-.item h2{font-size:20px; font-weight:800; letter-spacing:-.02em; margin:0 0 6px}
-.item p{margin:0 0 10px; font-size:15px; color:var(--muted)}
+.item h2{font-size:20px; font-weight:800; letter-spacing:-.02em; margin:0 0 10px}
 .meta{display:flex; flex-wrap:wrap; gap:8px; align-items:center; font-size:13px; color:var(--faint)}
 .tag{border:1px solid var(--line); border-radius:6px; padding:2px 8px; color:var(--muted)}
 .empty{color:var(--muted); padding:24px 0 64px}
@@ -53,4 +52,4 @@ h1{font-size:clamp(30px,5vw,44px); line-height:1.2; letter-spacing:-.03em; font-
 .back{display:inline-block; margin-top:8px; font-size:14px; font-weight:600; color:var(--muted); text-decoration:none}
 .back:hover{color:var(--ink)}
 
-.foot{font-size:13px; color:var(--faint); padding:28px 24px 40px; border-top:1px solid var(--line)}
+.foot{font-size:13px; color:var(--faint); padding:28px 24px 40px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px}
