@@ -45,8 +45,9 @@
       if(!/^[a-z0-9-]+$/.test(slug)){ fail(); return; }
 
       Promise.all([
-        fetch('posts.json').then(function(r){ return r.json(); }),
-        fetch('posts/' + slug + '.md').then(function(r){ if(!r.ok) throw 0; return r.text(); })
+        // 글 수정 사항이 바로 보이도록 캐시 우회
+        fetch('posts.json?t=' + Date.now(), { cache: 'no-store' }).then(function(r){ return r.json(); }),
+        fetch('posts/' + slug + '.md?t=' + Date.now(), { cache: 'no-store' }).then(function(r){ if(!r.ok) throw 0; return r.text(); })
       ]).then(function(res){
         var post = res[0].filter(function(p){ return p.slug === slug; })[0];
         if(!post){ fail(); return; }

@@ -30,7 +30,8 @@
     (function(){
       var list = document.getElementById('list');
       // 글 목록 불러와서 최신순으로 표시
-      fetch('posts.json').then(function(r){ return r.json(); }).then(function(posts){
+      // 새 글이 바로 보이도록 캐시 우회 (브라우저 + GitHub Pages CDN)
+      fetch('posts.json?t=' + Date.now(), { cache: 'no-store' }).then(function(r){ return r.json(); }).then(function(posts){
         if(!posts.length){
           list.innerHTML = '<li class="empty">아직 글이 없습니다.</li>';
           return;
