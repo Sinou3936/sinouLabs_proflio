@@ -95,6 +95,19 @@
     .points li strong{display:block; font-size:17px; margin-bottom:6px; letter-spacing:-.01em}
     .points li span{font-size:15px; color:var(--muted)}
 
+    /* news preview */
+    .news-head{display:flex; justify-content:space-between; align-items:flex-end; gap:16px; flex-wrap:wrap; margin:0 0 28px}
+    .news-head .intro{margin:0}
+    .more{font-size:14.5px; font-weight:600; color:var(--ink); text-decoration:none; white-space:nowrap}
+    .more::after{content:" →"; color:var(--accent-ink)}
+    .more:hover{text-decoration:underline; text-underline-offset:3px}
+    .news-grid{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px}
+    .news-card{display:flex; flex-direction:column; gap:14px; height:100%; background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:24px 22px; color:var(--ink); text-decoration:none}
+    .news-card:hover{border-color:var(--accent)}
+    .news-card h3{font-size:17px; font-weight:800; letter-spacing:-.01em; line-height:1.45; margin:0; word-break:keep-all}
+    .news-meta{margin-top:auto; display:flex; flex-wrap:wrap; gap:6px; align-items:center; font-size:13px; color:var(--faint)}
+    .news-meta .tag{font-size:12px; color:var(--muted); border:1px solid var(--line); border-radius:6px; padding:2px 8px}
+
     /* contact */
     .mail{font-size:clamp(22px,4vw,34px); font-weight:700; letter-spacing:-.02em; color:var(--ink); text-decoration:none}
     .mail:hover{color:var(--accent-ink)}
@@ -115,6 +128,7 @@
       .strengths{grid-template-columns:1fr}
       .points{grid-template-columns:1fr}
       nav a{margin-left:16px}
+      .news-grid{grid-template-columns:1fr}
     }
     @media (max-width:760px){
       .grid{grid-template-columns:1fr}
@@ -271,6 +285,17 @@
       </div>
     </section>
 
+    <!-- 최신 AI소식지 미리보기 (글이 없거나 불러오기 실패 시 숨김) -->
+    <section id="news" class="block" hidden>
+      <p class="eyebrow">AI News</p>
+      <h2>AI소식지</h2>
+      <div class="news-head">
+        <p class="intro">매주 월·수·금, AI 소식 하나와 시노우랩스의 생각을 전합니다.</p>
+        <a class="more" href="news/">전체 보기</a>
+      </div>
+      <ul class="news-grid" id="news-grid"></ul>
+    </section>
+
     <section id="contact" class="block">
       <p class="eyebrow">Contact</p>
       <p class="lead-sm">제품 문의, 제휴, 기타 연락은 이메일로 주세요.</p>
@@ -284,6 +309,32 @@
   <script type="module" src="js/visit-counter.js"></script>
 
   <script>
+    // 최신 소식지 3개 표시 (news/posts.json 공유)
+    (function(){
+      var section = document.getElementById('news');
+      var grid = document.getElementById('news-grid');
+      fetch('news/posts.json').then(function(r){ return r.json(); }).then(function(posts){
+        if(!posts.length) return;
+        posts.sort(function(a,b){ return a.date < b.date ? 1 : -1; });
+        posts.slice(0, 3).forEach(function(p){
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.className = 'news-card';
+          a.href = 'news/post.html?slug=' + encodeURIComponent(p.slug);
+          // textContent로 넣어 XSS 방지
+          var h = document.createElement('h3'); h.textContent = p.title;
+          var m = document.createElement('div'); m.className = 'news-meta';
+          var d = document.createElement('span'); d.textContent = p.date; m.appendChild(d);
+          (p.tags || []).forEach(function(t){
+            var tg = document.createElement('span'); tg.className = 'tag'; tg.textContent = t; m.appendChild(tg);
+          });
+          a.appendChild(h); a.appendChild(m);
+          li.appendChild(a); grid.appendChild(li);
+        });
+        section.hidden = false;
+      }).catch(function(){ /* 실패 시 섹션 숨김 유지 */ });
+    })();
+
     (function(){
       var tabs = document.querySelectorAll('[role="tab"]');
       tabs.forEach(function(tab){
