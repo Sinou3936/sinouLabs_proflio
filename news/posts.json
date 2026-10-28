@@ -1,8 +1,21 @@
 [
   {
+    "slug": "2026-10-28-ai-studio-firebase-app-check",
+    "title": "[AI소식지 #2] AI Studio 안드로이드 앱에 App Check 기본 적용, 편해질수록 확인은 내 몫",
+    "date": "2026-10-28",
+    "tags": [
+      "Firebase",
+      "Gemini",
+      "앱 보안"
+    ]
+  },
+  {
     "slug": "2026-10-27-1password-for-agents",
     "title": "[AI소식지 #1] AI 비서가 비밀번호를 안 보고 로그인한다, 맡기되 열쇠는 주지 않는 법",
     "date": "2026-10-27",
-    "tags": ["AI 에이전트", "보안"]
+    "tags": [
+      "AI 에이전트",
+      "보안"
+    ]
   }
 ]
