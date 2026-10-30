@@ -1,5 +1,15 @@
 [
   {
+    "slug": "2026-10-30-github-octoverse-agents",
+    "title": "[AI소식지 #3] GitHub 풀 리퀘스트 40% 이상이 AI 초안에서 시작, 초안은 AI가 확인은 사람이",
+    "date": "2026-10-30",
+    "tags": [
+      "AI코딩",
+      "GitHub",
+      "개발도구"
+    ]
+  },
+  {
     "slug": "2026-10-28-ai-studio-firebase-app-check",
     "title": "[AI소식지 #2] AI Studio 안드로이드 앱에 App Check 기본 적용, 편해질수록 확인은 내 몫",
     "date": "2026-10-28",
