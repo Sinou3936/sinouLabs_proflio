@@ -1,0 +1,25 @@
+## 이번 주 핵심 뉴스
+
+- 구글이 11월 5일(현지 기준) Gemini Omni 1.2 Flash를 Gemini API에서 정식 제공(GA)한다고 발표했습니다.
+- 720p 영상 생성 가격은 초당 0.07달러로, Omni 1.1 Flash보다 30% 낮아졌습니다.
+- 클립 길이는 최대 10초에서 15초로 늘었고, 3~15초를 1초 단위로 지정할 수 있습니다.
+- 360p·720p로 초안을 만든 뒤 1080p·4K로 업스케일할 수 있고, 같은 클립을 프롬프트로 이어서 고치는 멀티턴 편집을 지원합니다.
+- Gemini API 문서에 따르면 기존 1.1 Flash 호출은 12월 3일부터 1.2 Flash로 자동 전환됩니다.
+
+## 왜 눈여겨봤나
+
+영상 생성은 호출 한 번의 비용이 글 생성보다 큰 편이라, 가격 인하 소식은 작은 팀에게 비용을 다시 계산해 볼 계기가 됩니다. 초안은 낮은 해상도로 만들고 마음에 드는 결과만 높이는 구조라, 기능을 어떻게 설계하느냐가 비용과 바로 이어진다는 점이 눈에 띄었습니다.
+
+## 시노우랩스가 느낀 점
+
+하비허브는 7일마다 Gemini가 활동을 분석해 피드백을 주는 구조라, 호출 비용과 모델 이름 관리가 남의 일이 아닙니다. 이번 소식은 영상 모델이지만 같은 계열이 1.1에서 1.2로 넘어가며 가격과 사양이 몇 달 만에 바뀌고 이전 모델 호출이 자동으로 전환된다는 점을 다시 보여 주었습니다. 모델 이름과 단가를 코드 곳곳이 아닌 한곳에서 관리하고 있는지부터 점검해 보려 합니다.
+
+또 하나는 '싸졌으니 넣자'보다 '이 기능이 사용자에게 필요한가'를 먼저 묻는 일입니다. 취미 기록을 영상으로 만들어 주는 기능이 하비허브에 어울릴지는 아직 모르겠습니다. 검토하게 된다면 호출당 비용에 사용자 한 명의 활동량을 곱해 보는 계산부터 해 볼 생각입니다. 약봄은 큰 글씨와 적은 조작이 핵심이라, 이런 생성형 기능을 서둘러 붙일 이유는 없다고 생각합니다.
+
+## 출처
+
+- [Gemini Omni 1.2 Flash: 15-second video and lower pricing (Google Blog)](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/)
+- [Gemini Omni 1.2 Flash 정식 출시 발표 (Google Cloud Blog)](https://cloud.google.com/blog/products/ai-machine-learning/gemini-omni-1-2-flash-generally-available)
+- [Gemini API 모델 지원 중단 일정 (Google AI Studio 문서)](https://aistudio.google.com/docs/deprecations)
+- [Google Cuts Gemini Omni Video Price 30% to $0.07 a Second (FourWeekMBA)](https://fourweekmba.com/ai-google-cuts-gemini-omni-video-price-30-to-0-07-a-second)
+- [Your Gemini Omni 1.1 Flash Calls Switch Models on December 3 (beri.net)](https://beri.net/article/gemini-omni-1-2-flash-ga-720p-pricing-december-3-model-routing-veo-3-1-replacement-gemini-enterprise)
