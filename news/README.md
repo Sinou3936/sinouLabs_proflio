@@ -37,6 +37,9 @@
 - #3 개발 도구·AI 코딩 / GitHub
 - #4 개발 도구·AI 코딩 / Google (Android Studio)
 - #5 백엔드·클라우드 / Google (Firebase App Check)
+- #6 모바일 / Apple (앱스토어 연령 등급)
+- #7 AI 모델·서비스 / Google (Gemini Omni)
+- #8 AI 모델·서비스 / Anthropic (Claude Fable 5.2)
 
 ## 글 추가 방법
 1. `news/posts/_template.md`를 `news/posts/<slug>.md`로 복사해서 본문 작성
