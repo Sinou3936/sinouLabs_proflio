@@ -1,5 +1,17 @@
 [
   {
+    "slug": "2026-11-16-fireworks-ai-notion-breach",
+    "title": "[AI소식지 #10] AI 공급업체 침해로 Notion AI 대화 노출, 연동 서비스까지 점검해야 합니다",
+    "date": "2026-11-16",
+    "tags": [
+      "AI보안",
+      "데이터유출",
+      "Notion",
+      "Fireworks AI",
+      "서드파티"
+    ]
+  },
+  {
     "slug": "2026-11-13-ai-agent-traffic-login-security",
     "title": "[AI소식지 #9] 사람인 척하는 AI 에이전트, 로그인 창구는 이름보다 행동을 봐야 합니다",
     "date": "2026-11-13",
