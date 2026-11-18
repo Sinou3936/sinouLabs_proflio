@@ -42,6 +42,7 @@
 - #8 AI 모델·서비스 / Anthropic (Claude Fable 5.2)
 - #9 AI 에이전트·자동화 / Cequence Security
 - #10 보안·정책 / Fireworks AI, Notion
+- #11 일상 AI 서비스 / Google (Gemini Tasks)
 
 ## 글 추가 방법
 1. `news/posts/_template.md`를 `news/posts/<slug>.md`로 복사해서 본문 작성
