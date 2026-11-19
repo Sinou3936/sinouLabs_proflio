@@ -66,7 +66,7 @@
     .strength p{margin:0; font-size:15px; color:var(--muted)}
 
     /* products */
-    .grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px}
+    .grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px}
     .card{background:var(--surface); border:1px solid var(--line); border-radius:20px; overflow:hidden; display:flex; flex-direction:column}
     .media{height:188px; background:var(--media); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:center}
     .media img{width:128px; height:128px; border-radius:28px; box-shadow:0 10px 28px rgba(0,0,0,.12)}
@@ -151,9 +151,9 @@
       .points{grid-template-columns:1fr}
       nav a{margin-left:16px}
       .news-grid{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
     }
     @media (max-width:760px){
-      .grid{grid-template-columns:1fr}
       .info{grid-template-columns:1fr}
       .block{padding:52px 0}
     }
@@ -181,6 +181,7 @@
         <div class="hero-apps">
           <a href="#products"><img src="assets/yakbom-icon.png" alt="약봄 앱 아이콘"><span>약봄</span></a>
           <a href="#products"><img src="assets/hobbyhub-icon.png" alt="하비허브 앱 아이콘"><span>하비허브</span></a>
+          <a href="#products"><img src="assets/checkinapp-icon.png" alt="CheckInApp 앱 아이콘"><span>CheckInApp</span></a>
         </div>
       </div>
     </section>
@@ -249,6 +250,23 @@
             </div>
           </div>
         </article>
+
+        <article class="card">
+          <div class="media"><img src="assets/checkinapp-icon.png" alt="CheckInApp 앱 아이콘"></div>
+          <div class="body">
+            <span class="status">개인 프로젝트 · Windows</span>
+            <h3 class="name">CheckInApp</h3>
+            <p class="desc">카운터 PC 화면의 QR을 회원이 자기 폰으로 찍어 등원·하원을 직접 기록하는 학원·헬스장용 출결 관리 앱입니다.</p>
+            <ul class="tags">
+              <li>Flutter</li>
+              <li>SQLite</li>
+              <li>Windows</li>
+            </ul>
+            <div class="links">
+              <a href="https://github.com/Sinou3936/CheckInAPP">GitHub에서 보기</a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -257,6 +275,7 @@
       <div class="tabs" role="tablist" aria-label="앱 선택">
         <button class="tab" role="tab" id="tab-yakbom" aria-controls="panel-yakbom" aria-selected="true">약봄</button>
         <button class="tab" role="tab" id="tab-hobbyhub" aria-controls="panel-hobbyhub" aria-selected="false" tabindex="-1">하비허브</button>
+        <button class="tab" role="tab" id="tab-checkinapp" aria-controls="panel-checkinapp" aria-selected="false" tabindex="-1">CheckInApp</button>
       </div>
 
       <div class="panel" role="tabpanel" id="panel-yakbom" aria-labelledby="tab-yakbom">
@@ -303,6 +322,30 @@
           <li>
             <strong>XP·레벨 성장과 AI 피드백</strong>
             <span>기록과 연속 활동으로 XP가 쌓이고, 7일마다 Gemini가 활동을 분석해 피드백을 줍니다.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="panel" role="tabpanel" id="panel-checkinapp" aria-labelledby="tab-checkinapp" hidden>
+        <h2>QR 하나로 등원과 하원을,<br>외부 서버 없이.</h2>
+        <p class="intro">카운터 PC 한 대에서 관리자 앱과 체크인 서버가 함께 돌고, 회원은 같은 와이파이에서 자기 폰으로 출결을 남깁니다.</p>
+        <div class="shots">
+          <figure><img src="assets/checkinapp-dashboard.jpg" alt="CheckInApp 실시간 현황 화면, 카운터에 띄우는 체크인 QR" loading="lazy"></figure>
+          <figure><img src="assets/checkinapp-verify.jpg" alt="CheckInApp 폰 체크인 화면, 이름 선택과 학부모 연락처 뒷 4자리 입력" loading="lazy"></figure>
+          <figure><img src="assets/checkinapp-minstay.jpg" alt="CheckInApp 폰 체크인 화면, 최소 체류 시간 전이라 하원이 막힌 안내" loading="lazy"></figure>
+        </div>
+        <ul class="points">
+          <li>
+            <strong>QR 하나, 판정은 서버가</strong>
+            <span>QR은 30초마다 바뀌고 등원용·하원용으로 나뉘지 않습니다. 등원인지 하원인지는 서버가 회원 상태를 보고 정해서, 학생이 잘못 고를 일이 없습니다.</span>
+          </li>
+          <li>
+            <strong>처음 한 번만 본인 확인</strong>
+            <span>이름과 학부모 연락처 뒷 4자리로 확인하면 폰이 기억합니다. 5번 연속 틀리면 10분 동안 막아 대입 시도를 차단합니다.</span>
+          </li>
+          <li>
+            <strong>등원 직후 재스캔은 하원이 아닙니다</strong>
+            <span>최소 체류 시간(기본 30분)이 지나기 전에는 하원으로 기록하지 않아, 학부모에게 잘못된 하원 알림이 가지 않습니다.</span>
           </li>
         </ul>
       </div>
