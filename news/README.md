@@ -44,6 +44,7 @@
 - #10 보안·정책 / Fireworks AI, Notion
 - #11 일상 AI 서비스 / Google (Gemini Tasks)
 - #12 AI 모델·서비스 / Microsoft (MAI 모델)
+- #13 보안·정책 / Signal
 
 ## 글 추가 방법
 1. `news/posts/_template.md`를 `news/posts/<slug>.md`로 복사해서 본문 작성
