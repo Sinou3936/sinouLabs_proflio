@@ -1,5 +1,15 @@
 [
   {
+    "slug": "2026-11-25-google-semantic-governance",
+    "title": "[AI소식지 #14] 구글, 에이전트 도구 호출을 실행 전에 검사한다 - 권한만으로는 부족하다는 신호",
+    "date": "2026-11-25",
+    "tags": [
+      "AI에이전트",
+      "프롬프트주입",
+      "Gemini"
+    ]
+  },
+  {
     "slug": "2026-11-23-signal-blocks-os-ai-agents",
     "title": "[AI소식지 #13] Signal, OS AI 에이전트의 화면 읽기 차단, 앱 화면도 점검 대상입니다",
     "date": "2026-11-23",
