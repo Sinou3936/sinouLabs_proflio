@@ -148,6 +148,7 @@
     @media (max-width:860px){
       .hero{padding:64px 0 48px}
       .strengths{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
       .points{grid-template-columns:1fr}
       nav a{margin-left:16px}
       .news-grid{grid-template-columns:1fr}
@@ -250,6 +251,20 @@
             </div>
           </div>
         </article>
+        <article class="card">
+          <div class="media"><img src="assets/stockcontrol-icon.png" alt="재고관리 앱 아이콘"></div>
+          <div class="body">
+            <span class="status">시연 버전</span>
+            <h3 class="name">재고관리</h3>
+            <p class="desc">여러 매장의 입고·폐기·마감 실사를 기록하고, 전체 매장 재고를 한눈에 보는 재고관리 앱입니다.</p>
+            <ul class="tags">
+              <li>Flutter</li>
+              <li>Drift</li>
+              <li>Supabase</li>
+              <li>Windows · Android</li>
+            </ul>
+            <div class="links">
+              <a href="https://github.com/Sinou3936/StockControl">GitHub에서 보기</a>
 
         <article class="card">
           <div class="media"><img src="assets/checkinapp-icon.png" alt="CheckInApp 앱 아이콘"></div>
@@ -275,6 +290,7 @@
       <div class="tabs" role="tablist" aria-label="앱 선택">
         <button class="tab" role="tab" id="tab-yakbom" aria-controls="panel-yakbom" aria-selected="true">약봄</button>
         <button class="tab" role="tab" id="tab-hobbyhub" aria-controls="panel-hobbyhub" aria-selected="false" tabindex="-1">하비허브</button>
+        <button class="tab" role="tab" id="tab-stockcontrol" aria-controls="panel-stockcontrol" aria-selected="false" tabindex="-1">재고관리</button>
         <button class="tab" role="tab" id="tab-checkinapp" aria-controls="panel-checkinapp" aria-selected="false" tabindex="-1">CheckInApp</button>
       </div>
 
@@ -326,6 +342,27 @@
         </ul>
       </div>
 
+      <div class="panel" role="tabpanel" id="panel-stockcontrol" aria-labelledby="tab-stockcontrol" hidden>
+        <h2>매장마다 기록하고,<br>재고는 한눈에.</h2>
+        <p class="intro">입고, 폐기, 마감 실사를 매장 PC와 휴대폰에서 기록하고, 부족한 품목은 바로 발주서로 만듭니다.</p>
+        <div class="shots">
+          <figure><img src="assets/stockcontrol-stock.png" alt="재고관리 재고 조회 화면, 품목별 재고 수량" loading="lazy"></figure>
+          <figure><img src="assets/stockcontrol-inbound.png" alt="재고관리 입고 등록 화면, 구매 단위를 기본 단위로 환산" loading="lazy"></figure>
+          <figure><img src="assets/stockcontrol-count.png" alt="재고관리 마감 실사 화면, 이론 재고와 실사 수량의 차이 확인" loading="lazy"></figure>
+          <figure><img src="assets/stockcontrol-order.png" alt="재고관리 발주서 만들기 화면, PDF와 엑셀 저장" loading="lazy"></figure>
+        </div>
+        <ul class="points">
+          <li>
+            <strong>인터넷이 끊겨도 저장</strong>
+            <span>기록은 기기에 먼저 저장되고, 서버 동기화는 뒤에서 자동으로 이어집니다.</span>
+          </li>
+          <li>
+            <strong>고치지 않고 쌓는 재고 기록</strong>
+            <span>재고 수량을 덮어쓰지 않고 입고·폐기·실사 기록을 더해 계산해서, 언제 무엇이 바뀌었는지 남습니다.</span>
+          </li>
+          <li>
+            <strong>부족 알림에서 발주서까지</strong>
+            <span>안전재고보다 부족한 품목을 모아 거래처별 발주서를 PDF나 엑셀로 바로 만듭니다.</span>
       <div class="panel" role="tabpanel" id="panel-checkinapp" aria-labelledby="tab-checkinapp" hidden>
         <h2>QR 하나로 등원과 하원을,<br>외부 서버 없이.</h2>
         <p class="intro">카운터 PC 한 대에서 관리자 앱과 체크인 서버가 함께 돌고, 회원은 같은 와이파이에서 자기 폰으로 출결을 남깁니다.</p>
