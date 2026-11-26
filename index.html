@@ -109,9 +109,23 @@
     .news-meta .tag{font-size:12px; color:var(--muted); border:1px solid var(--line); border-radius:6px; padding:2px 8px}
 
     /* contact */
-    .mail{font-size:clamp(22px,4vw,34px); font-weight:700; letter-spacing:-.02em; color:var(--ink); text-decoration:none}
-    .mail:hover{color:var(--accent-ink)}
     .lead-sm{font-size:16px; color:var(--muted); margin:0 0 14px}
+    /* 문의 폼 */
+    .cf{margin-top:28px; max-width:560px; display:grid; gap:16px}
+    .cf[hidden]{display:none}
+    .cf-field{display:grid; gap:6px; font-size:14px; color:var(--muted)}
+    .cf-field input,.cf-field textarea{font:inherit; font-size:16px; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:12px 14px; width:100%; box-sizing:border-box}
+    .cf-field textarea{resize:vertical; min-height:140px}
+    .cf-field input:focus,.cf-field textarea:focus{outline:2px solid var(--accent); outline-offset:1px; border-color:transparent}
+    .cf-hp{position:absolute; left:-9999px; width:1px; height:1px; opacity:0}
+    .cf-submit{justify-self:start; font:inherit; font-size:16px; font-weight:600; color:#fff; background:var(--accent-ink); border:0; border-radius:10px; padding:12px 22px; cursor:pointer}
+    .cf-submit:disabled{opacity:.6; cursor:default}
+    .form-note{font-size:13px; color:var(--faint); margin:0}
+    .form-note a{color:var(--muted)}
+    .cf-status{font-size:14px; margin:0; min-height:1.4em}
+    .cf-status[data-state="ok"]{color:var(--muted)}
+    .cf-status[data-state="error"]{color:var(--accent-ink)}
+    @media (max-width:640px){ .cf-submit{justify-self:stretch} }
 
     /* business info */
     .info{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 48px; margin:0}
@@ -120,8 +134,16 @@
     .info dd{margin:0; font-size:16px; font-weight:600}
     .info a{color:var(--ink)}
 
-    .biz{margin:40px 0 0; font-size:14px; color:var(--muted)}
-    .foot{font-size:13px; color:var(--faint); padding:28px 24px 40px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px}
+    /* footer: 사업자 정보(.info) + 저작권·방침 링크 줄 */
+    .foot{font-size:13px; color:var(--faint); padding:28px 24px 40px; border-top:1px solid var(--line)}
+    .foot .info{margin-bottom:20px}
+    .foot .info > div{padding:10px 0}
+    .foot .info dt{font-size:12px; color:var(--faint); margin-bottom:2px}
+    .foot .info dd{font-size:14px; font-weight:500; color:var(--muted)}
+    .foot .info a{color:var(--muted)}
+    .foot-bar{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 16px}
+    .foot-link{color:var(--muted); font-weight:700; text-decoration:none}
+    .foot-link:hover{color:var(--ink); text-decoration:underline; text-underline-offset:3px}
 
     @media (max-width:860px){
       .hero{padding:64px 0 48px}
@@ -130,9 +152,9 @@
       .points{grid-template-columns:1fr}
       nav a{margin-left:16px}
       .news-grid{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
     }
     @media (max-width:760px){
-      .grid{grid-template-columns:1fr}
       .info{grid-template-columns:1fr}
       .block{padding:52px 0}
     }
@@ -160,6 +182,7 @@
         <div class="hero-apps">
           <a href="#products"><img src="assets/yakbom-icon.png" alt="약봄 앱 아이콘"><span>약봄</span></a>
           <a href="#products"><img src="assets/hobbyhub-icon.png" alt="하비허브 앱 아이콘"><span>하비허브</span></a>
+          <a href="#products"><img src="assets/checkinapp-icon.png" alt="CheckInApp 앱 아이콘"><span>CheckInApp</span></a>
         </div>
       </div>
     </section>
@@ -242,6 +265,20 @@
             </ul>
             <div class="links">
               <a href="https://github.com/Sinou3936/StockControl">GitHub에서 보기</a>
+
+        <article class="card">
+          <div class="media"><img src="assets/checkinapp-icon.png" alt="CheckInApp 앱 아이콘"></div>
+          <div class="body">
+            <span class="status">개인 프로젝트 · Windows</span>
+            <h3 class="name">CheckInApp</h3>
+            <p class="desc">카운터 PC 화면의 QR을 회원이 자기 폰으로 찍어 등원·하원을 직접 기록하는 학원·헬스장용 출결 관리 앱입니다.</p>
+            <ul class="tags">
+              <li>Flutter</li>
+              <li>SQLite</li>
+              <li>Windows</li>
+            </ul>
+            <div class="links">
+              <a href="https://github.com/Sinou3936/CheckInAPP">GitHub에서 보기</a>
             </div>
           </div>
         </article>
@@ -254,6 +291,7 @@
         <button class="tab" role="tab" id="tab-yakbom" aria-controls="panel-yakbom" aria-selected="true">약봄</button>
         <button class="tab" role="tab" id="tab-hobbyhub" aria-controls="panel-hobbyhub" aria-selected="false" tabindex="-1">하비허브</button>
         <button class="tab" role="tab" id="tab-stockcontrol" aria-controls="panel-stockcontrol" aria-selected="false" tabindex="-1">재고관리</button>
+        <button class="tab" role="tab" id="tab-checkinapp" aria-controls="panel-checkinapp" aria-selected="false" tabindex="-1">CheckInApp</button>
       </div>
 
       <div class="panel" role="tabpanel" id="panel-yakbom" aria-labelledby="tab-yakbom">
@@ -325,6 +363,26 @@
           <li>
             <strong>부족 알림에서 발주서까지</strong>
             <span>안전재고보다 부족한 품목을 모아 거래처별 발주서를 PDF나 엑셀로 바로 만듭니다.</span>
+      <div class="panel" role="tabpanel" id="panel-checkinapp" aria-labelledby="tab-checkinapp" hidden>
+        <h2>QR 하나로 등원과 하원을,<br>외부 서버 없이.</h2>
+        <p class="intro">카운터 PC 한 대에서 관리자 앱과 체크인 서버가 함께 돌고, 회원은 같은 와이파이에서 자기 폰으로 출결을 남깁니다.</p>
+        <div class="shots">
+          <figure><img src="assets/checkinapp-dashboard.jpg" alt="CheckInApp 실시간 현황 화면, 카운터에 띄우는 체크인 QR" loading="lazy"></figure>
+          <figure><img src="assets/checkinapp-verify.jpg" alt="CheckInApp 폰 체크인 화면, 이름 선택과 학부모 연락처 뒷 4자리 입력" loading="lazy"></figure>
+          <figure><img src="assets/checkinapp-minstay.jpg" alt="CheckInApp 폰 체크인 화면, 최소 체류 시간 전이라 하원이 막힌 안내" loading="lazy"></figure>
+        </div>
+        <ul class="points">
+          <li>
+            <strong>QR 하나, 판정은 서버가</strong>
+            <span>QR은 30초마다 바뀌고 등원용·하원용으로 나뉘지 않습니다. 등원인지 하원인지는 서버가 회원 상태를 보고 정해서, 학생이 잘못 고를 일이 없습니다.</span>
+          </li>
+          <li>
+            <strong>처음 한 번만 본인 확인</strong>
+            <span>이름과 학부모 연락처 뒷 4자리로 확인하면 폰이 기억합니다. 5번 연속 틀리면 10분 동안 막아 대입 시도를 차단합니다.</span>
+          </li>
+          <li>
+            <strong>등원 직후 재스캔은 하원이 아닙니다</strong>
+            <span>최소 체류 시간(기본 30분)이 지나기 전에는 하원으로 기록하지 않아, 학부모에게 잘못된 하원 알림이 가지 않습니다.</span>
           </li>
         </ul>
       </div>
@@ -343,15 +401,52 @@
 
     <section id="contact" class="block">
       <p class="eyebrow">Contact</p>
-      <p class="lead-sm">제품 문의, 제휴, 기타 연락은 이메일로 주세요.</p>
-      <a class="mail" href="mailto:asd27090@gmail.com">asd27090@gmail.com</a>
-      <p class="biz">시노우랩스 (SinouLabs) · 대표 김현승 · 응용 소프트웨어 개발 및 공급업</p>
-      <!-- 구글 폼 임베드 자리 -->
+      <p class="lead-sm">제품 문의, 제휴, 기타 연락은 아래 폼으로 보내주세요.</p>
+      <!-- 문의 폼: Web3Forms로 전송 → Gmail 수신. access_key가 비어 있으면 스크립트가 폼을 숨긴 채로 둔다 -->
+      <form id="contact-form" class="cf" hidden>
+        <input type="hidden" name="access_key" value="1de79728-2b22-4ff5-ba65-b9f5b002b467">
+        <input type="hidden" name="subject" value="[시노우랩스] 새 문의가 도착했어요">
+        <input type="hidden" name="from_name" value="시노우랩스 웹사이트">
+        <!-- 스팸 봇 차단용 칸 (화면에 안 보임) -->
+        <input type="checkbox" name="botcheck" class="cf-hp" tabindex="-1" autocomplete="off">
+
+        <label class="cf-field">
+          <span>이름</span>
+          <input type="text" name="name" required maxlength="50" autocomplete="name">
+        </label>
+        <label class="cf-field">
+          <span>회신받을 이메일</span>
+          <input type="email" name="email" required maxlength="100" autocomplete="email">
+        </label>
+        <label class="cf-field">
+          <span>문의 내용</span>
+          <textarea name="message" required rows="6" maxlength="3000"></textarea>
+        </label>
+
+        <p class="form-note">보내주신 이름, 이메일, 문의 내용은 답변 목적으로만 쓰며 <a href="privacy.html">개인정보처리방침</a>에 따라 처리됩니다.</p>
+        <button type="submit" class="cf-submit">문의 보내기</button>
+        <p class="cf-status" role="status" aria-live="polite"></p>
+      </form>
     </section>
   </main>
 
-  <footer class="wrap foot"><span>&copy; 2026 SinouLabs. All rights reserved.</span><span data-visit-counter></span></footer>
+  <!-- 사업자 정보 표기 (통신판매업 미신고라 신고번호·주소·전화는 생략) -->
+  <footer class="wrap foot">
+    <dl class="info">
+      <div><dt>상호</dt><dd>시노우랩스 (SinouLabs)</dd></div>
+      <div><dt>대표자</dt><dd>김현승</dd></div>
+      <div><dt>사업자등록번호</dt><dd>871-09-03135</dd></div>
+      <div><dt>업종</dt><dd>응용 소프트웨어 개발 및 공급업</dd></div>
+      <div><dt>호스팅 제공자</dt><dd>GitHub, Inc. (GitHub Pages)</dd></div>
+      <div><dt>문의</dt><dd><a href="mailto:khyunseong9630@gmail.com">khyunseong9630@gmail.com</a></dd></div>
+    </dl>
+    <div class="foot-bar">
+      <span>&copy; 2026 SinouLabs. All rights reserved. · <a class="foot-link" href="privacy.html">개인정보처리방침</a></span>
+      <span data-visit-counter></span>
+    </div>
+  </footer>
   <script type="module" src="js/visit-counter.js"></script>
+  <script type="module" src="js/contact-form.js"></script>
 
   <script>
     // 최신 소식지 3개 표시 (news/posts.json 공유)

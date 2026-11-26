@@ -52,4 +52,23 @@ h1{font-size:clamp(30px,5vw,44px); line-height:1.2; letter-spacing:-.03em; font-
 .back{display:inline-block; margin-top:8px; font-size:14px; font-weight:600; color:var(--muted); text-decoration:none}
 .back:hover{color:var(--ink)}
 
-.foot{font-size:13px; color:var(--faint); padding:28px 24px 40px; border-top:1px solid var(--line); display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px}
+/* 푸터: 사업자 정보(.info, 메인 페이지와 동일 구조) + 저작권·방침 링크 줄 */
+.foot{font-size:13px; color:var(--faint); padding:28px 24px 40px; border-top:1px solid var(--line)}
+.info{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 48px; margin:0 0 20px}
+.info > div{padding:10px 0; border-bottom:1px solid var(--line)}
+.info dt{font-size:12px; color:var(--faint); margin-bottom:2px}
+.info dd{margin:0; font-size:14px; font-weight:500; color:var(--muted)}
+.info a{color:var(--muted)}
+.foot-bar{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 16px}
+.foot-link{color:var(--muted); font-weight:700; text-decoration:none}
+.foot-link:hover{color:var(--ink); text-decoration:underline; text-underline-offset:3px}
+
+/* 개인정보처리방침 표 */
+.post-body table{width:100%; min-width:520px; border-collapse:collapse; font-size:15px; margin:12px 0}
+.post-body th,.post-body td{border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top}
+.post-body th{background:var(--surface); font-weight:700}
+.table-scroll{overflow-x:auto}
+
+@media (max-width:760px){
+  .info{grid-template-columns:1fr}
+}
