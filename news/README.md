@@ -46,6 +46,7 @@
 - #12 AI 모델·서비스 / Microsoft (MAI 모델)
 - #13 보안·정책 / Signal
 - #14 AI 에이전트·자동화 / Google (Gemini 플랫폼)
+- #15 개발 도구·AI 코딩 / Cognition
 
 ## 글 추가 방법
 1. `news/posts/_template.md`를 `news/posts/<slug>.md`로 복사해서 본문 작성
